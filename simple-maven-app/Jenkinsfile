@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'M3'   // matches the Maven installation name in Jenkins
+        maven 'M3'
     }
     stages {
         stage('Checkout Git') {
@@ -11,9 +11,7 @@ pipeline {
         }
         stage('Build and Test') {
             steps {
-                dir('simple-maven-app'){
-                sh 'mvn clean test'
-                }
+                sh 'mvn -f simple-maven-app/pom.xml clean test'
             }
         }
     }

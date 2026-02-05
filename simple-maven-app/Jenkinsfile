@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Build and Test') {
             steps {
-                sh 'mvn -f simple-maven-app/pom.xml clean test'
+                dir('simple-maven-app') { 
+                    sh 'mvn clean test'
+                }
             }
         }
     }
